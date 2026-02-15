@@ -1,0 +1,19 @@
+{
+  "name": "hello-world-express-app",
+  "version": "1.0.0",
+  "description": "Simple Node.js Express web app returning Hello World",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "hello-world"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
