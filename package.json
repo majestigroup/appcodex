@@ -1,0 +1,20 @@
+{
+  "name": "brutalist-stock-webapp",
+  "version": "1.0.0",
+  "description": "Express + frontend stock mock viewer with brutalist design",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "chartjs",
+    "brutalist"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
