@@ -1,7 +1,7 @@
 {
-  "name": "hello-world-express-app",
+  "name": "brutalist-stock-webapp",
   "version": "1.0.0",
-  "description": "Simple Node.js Express web app returning Hello World",
+  "description": "Express + frontend stock mock viewer with brutalist design",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,7 +9,8 @@
   "keywords": [
     "nodejs",
     "express",
-    "hello-world"
+    "chartjs",
+    "brutalist"
   ],
   "author": "",
   "license": "MIT",
