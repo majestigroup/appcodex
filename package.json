@@ -1,0 +1,22 @@
+{
+  "name": "online-courses-bi-dashboard",
+  "version": "1.0.0",
+  "description": "Business Intelligence web app for an online courses platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "express-session",
+    "business-intelligence",
+    "dashboard"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}

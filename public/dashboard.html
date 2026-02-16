@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BI Dashboard | CourseIntel</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="topbar card">
+        <div>
+          <p class="pill">Business Intelligence Dashboard</p>
+          <h1>CourseIntel Analytics</h1>
+        </div>
+        <div class="topbar-actions">
+          <a href="/" class="button ghost">Home</a>
+          <a href="/logout" class="button danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="grid three" id="revenue-cards"></section>
+
+      <section class="grid two">
+        <article class="card">
+          <h2>Top Courses</h2>
+          <div class="table-wrap">
+            <table id="courses-table">
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Enrollments</th>
+                  <th>Revenue</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Top Experts</h2>
+          <div class="table-wrap">
+            <table id="experts-table">
+              <thead>
+                <tr>
+                  <th>Expert</th>
+                  <th>Rating</th>
+                  <th>Total Students</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid two">
+        <article class="card">
+          <h2>Traffic (Visits per Day)</h2>
+          <canvas id="traffic-chart" height="120"></canvas>
+        </article>
+
+        <article class="card">
+          <h2>Social Performance</h2>
+          <div id="social-summary" class="metrics"></div>
+        </article>
+      </section>
+
+      <section class="grid two">
+        <article class="card">
+          <h2>Offers Performance</h2>
+          <div class="table-wrap">
+            <table id="offers-table">
+              <thead>
+                <tr>
+                  <th>Offer</th>
+                  <th>Conversion Rate</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Landing Pages</h2>
+          <div class="table-wrap">
+            <table id="landing-table">
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th>Visitors</th>
+                  <th>Conversion Rate</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/dashboard.js"></script>
+  </body>
+</html>
