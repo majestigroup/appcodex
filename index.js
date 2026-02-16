@@ -41,6 +41,21 @@ app.get('/api/stock/:symbol', (req, res) => {
   });
 });
 
+app.get('/about', (req, res) => {
+  res.send(`<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About This App</title>
+  </head>
+  <body>
+    <h1>About This App</h1>
+    <p>This is a test update from Codex to verify GitHub + Replit workflow.</p>
+  </body>
+</html>`);
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
