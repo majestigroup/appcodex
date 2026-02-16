@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | CourseIntel</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container auth-layout">
+      <section class="card auth-panel">
+        <a href="/" class="text-link">← Back to Home</a>
+        <h1>Sign in to CourseIntel</h1>
+        <p class="muted">Enter your credentials to access the BI dashboard.</p>
+
+        <div id="login-error" class="alert alert-error hidden" role="alert"></div>
+
+        <form method="POST" action="/login" class="form" id="login-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" placeholder="admin" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="password123" required />
+
+          <button type="submit" class="button button-block" id="login-submit">Login to Dashboard</button>
+        </form>
+
+        <div class="credentials card subtle">
+          <p class="muted credential-title">Demo Credentials</p>
+          <p><strong>Username:</strong> admin</p>
+          <p><strong>Password:</strong> password123</p>
+          <button type="button" class="button ghost" id="fill-demo">Use Demo Credentials</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/login.js"></script>
+  </body>
+</html>
