@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brutalist Stock Viewer</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main class="layout">
+      <h1>BRUTAL STOCK TERMINAL</h1>
+
+      <p class="status">
+        <a href="/about">Go to About page</a>
+      </p>
+
+      <form id="stock-form" class="panel">
+        <label for="symbol">ENTER SYMBOL</label>
+        <div class="row">
+          <input id="symbol" name="symbol" type="text" placeholder="AAPL" maxlength="8" required />
+          <button type="submit">LOAD</button>
+        </div>
+      </form>
+
+      <section id="result" class="panel hidden">
+        <h2 id="stock-title">-</h2>
+        <p id="stock-price"></p>
+        <p id="stock-summary"></p>
+      </section>
+
+      <section class="panel">
+        <h2>PRICE HISTORY</h2>
+        <canvas id="stock-chart" height="120"></canvas>
+      </section>
+
+      <p id="status" class="status">Type a symbol and click LOAD.</p>
+    </main>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
