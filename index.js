@@ -12,43 +12,43 @@ const DEMO_USER = {
 
 const mockData = {
   topCourses: [
-    { title: 'Advanced JavaScript Architecture', enrollments: 4520, revenue: 339000 },
-    { title: 'Data Analytics with Python', enrollments: 3890, revenue: 291750 },
-    { title: 'Product Management Masterclass', enrollments: 3120, revenue: 265200 },
-    { title: 'UI/UX Strategy for SaaS', enrollments: 2760, revenue: 193200 }
+    { title: 'Client Acquisition Mastery', enrollments: 5120, revenue: 378400 },
+    { title: 'Agency Scaling OS', enrollments: 4210, revenue: 324170 },
+    { title: 'Creator Monetization Blueprint', enrollments: 3890, revenue: 287860 },
+    { title: 'High-Ticket Offer Architecture', enrollments: 3320, revenue: 272240 }
   ],
   topExperts: [
-    { name: 'Sarah Kim', rating: 4.9, totalStudents: 18400 },
-    { name: 'David Morales', rating: 4.8, totalStudents: 16750 },
-    { name: 'Amina Hassan', rating: 4.8, totalStudents: 14520 },
-    { name: 'Lucas Zhang', rating: 4.7, totalStudents: 13210 }
+    { name: 'Tai Lopez', rating: 4.7, totalStudents: 228000 },
+    { name: 'Iman Gadzhi', rating: 4.8, totalStudents: 174500 },
+    { name: 'Sam Ovens', rating: 4.8, totalStudents: 162300 },
+    { name: 'Alex Hormozi', rating: 4.9, totalStudents: 149200 }
   ],
   trafficData: [
-    { day: 'Mon', visits: 9200 },
-    { day: 'Tue', visits: 9800 },
-    { day: 'Wed', visits: 10300 },
-    { day: 'Thu', visits: 11050 },
-    { day: 'Fri', visits: 12100 },
-    { day: 'Sat', visits: 8600 },
-    { day: 'Sun', visits: 7900 }
+    { day: 'Mon', visits: 12400 },
+    { day: 'Tue', visits: 13150 },
+    { day: 'Wed', visits: 13820 },
+    { day: 'Thu', visits: 14780 },
+    { day: 'Fri', visits: 15360 },
+    { day: 'Sat', visits: 10240 },
+    { day: 'Sun', visits: 9440 }
   ],
   socialData: {
-    followers: 187500,
-    engagementRate: 6.4
+    followers: 824000,
+    engagementRate: 7.1
   },
   revenueEstimates: {
-    monthlyRevenue: 1185000,
-    growthPercent: 12.7
+    monthlyRevenue: 1642000,
+    growthPercent: 14.3
   },
   offers: [
-    { name: 'Spring Upskill Bundle', conversionRate: 7.8 },
-    { name: 'Career Accelerator Pack', conversionRate: 6.3 },
-    { name: 'One-on-One Mentor Add-on', conversionRate: 4.9 }
+    { name: 'Scale Sprint (4 Weeks)', conversionRate: 8.6 },
+    { name: 'Authority Funnel Intensive', conversionRate: 7.4 },
+    { name: 'Premium Mentorship Upgrade', conversionRate: 5.7 }
   ],
   landingPages: [
-    { name: 'Data Science Bootcamp', visitors: 22300, conversionRate: 8.1 },
-    { name: 'Leadership Fast Track', visitors: 17850, conversionRate: 6.9 },
-    { name: 'Design Systems Intensive', visitors: 15440, conversionRate: 7.4 }
+    { name: 'Agency Growth Hub', visitors: 28750, conversionRate: 9.2 },
+    { name: 'Personal Brand Launchpad', visitors: 24310, conversionRate: 8.1 },
+    { name: 'Course Creator Accelerator', visitors: 21980, conversionRate: 8.7 }
   ]
 };
 
@@ -62,16 +62,6 @@ app.use(
     cookie: { maxAge: 1000 * 60 * 60 }
   })
 );
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-function requireAuth(req, res, next) {
-  if (req.session && req.session.user) {
-    return next();
-  }
-
-  return res.redirect('/login');
-}
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
@@ -99,6 +89,14 @@ app.post('/login', (req, res) => {
   return res.redirect('/dashboard');
 });
 
+function requireAuth(req, res, next) {
+  if (req.session && req.session.user) {
+    return next();
+  }
+
+  return res.redirect('/login');
+}
+
 app.get('/dashboard', requireAuth, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
@@ -112,6 +110,8 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
   });
 });
+
+app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
