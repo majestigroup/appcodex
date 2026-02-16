@@ -78,44 +78,21 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  const hasError = req.query.error === '1';
-  const loginFile = path.join(__dirname, 'public', 'login.html');
-
-  if (!hasError) {
-    return res.sendFile(loginFile);
+  if (req.session && req.session.user) {
+    return res.redirect('/dashboard');
   }
 
-  return res.sendFile(loginFile, (err) => {
-    if (err) {
-      res.status(500).send('Unable to load login page.');
-    }
-  });
+  return res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const username = String(req.body.username || '').trim();
+  const password = String(req.body.password || '');
 
   const isValidUser = username === DEMO_USER.username && password === DEMO_USER.password;
 
   if (!isValidUser) {
-    return res.status(401).send(`<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Failed</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <main class="container narrow">
-      <section class="card">
-        <h1>Login Failed</h1>
-        <p class="muted">Incorrect username or password.</p>
-        <a class="button" href="/login">Try Again</a>
-      </section>
-    </main>
-  </body>
-</html>`);
+    return res.redirect('/login?error=invalid_credentials');
   }
 
   req.session.user = { username: DEMO_USER.username };

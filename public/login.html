@@ -7,28 +7,33 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <main class="container narrow">
-      <section class="card">
-        <h1>Dashboard Login</h1>
-        <p class="muted">Use the demo credentials to access the BI dashboard.</p>
+    <main class="container auth-layout">
+      <section class="card auth-panel">
+        <a href="/" class="text-link">← Back to Home</a>
+        <h1>Sign in to CourseIntel</h1>
+        <p class="muted">Enter your credentials to access the BI dashboard.</p>
 
-        <div class="credentials card subtle">
-          <p><strong>Username:</strong> admin</p>
-          <p><strong>Password:</strong> password123</p>
-        </div>
+        <div id="login-error" class="alert alert-error hidden" role="alert"></div>
 
-        <form method="POST" action="/login" class="form">
+        <form method="POST" action="/login" class="form" id="login-form">
           <label for="username">Username</label>
           <input id="username" name="username" type="text" placeholder="admin" required />
 
           <label for="password">Password</label>
           <input id="password" name="password" type="password" placeholder="password123" required />
 
-          <button type="submit" class="button">Login</button>
+          <button type="submit" class="button button-block" id="login-submit">Login to Dashboard</button>
         </form>
 
-        <a href="/" class="text-link">← Back to Home</a>
+        <div class="credentials card subtle">
+          <p class="muted credential-title">Demo Credentials</p>
+          <p><strong>Username:</strong> admin</p>
+          <p><strong>Password:</strong> password123</p>
+          <button type="button" class="button ghost" id="fill-demo">Use Demo Credentials</button>
+        </div>
       </section>
     </main>
+
+    <script src="/login.js"></script>
   </body>
 </html>

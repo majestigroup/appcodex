@@ -9,10 +9,11 @@
   </head>
   <body>
     <main class="container">
-      <header class="topbar card">
+      <header class="topbar card nav-card">
         <div>
           <p class="pill">Business Intelligence Dashboard</p>
           <h1>CourseIntel Analytics</h1>
+          <p class="muted">Live operational view of courses, experts, revenue, and acquisition.</p>
         </div>
         <div class="topbar-actions">
           <a href="/" class="button ghost">Home</a>
@@ -23,8 +24,8 @@
       <section class="grid three" id="revenue-cards"></section>
 
       <section class="grid two">
-        <article class="card">
-          <h2>Top Courses</h2>
+        <article class="card table-card">
+          <div class="card-head"><h2>Top Courses</h2></div>
           <div class="table-wrap">
             <table id="courses-table">
               <thead>
@@ -39,8 +40,8 @@
           </div>
         </article>
 
-        <article class="card">
-          <h2>Top Experts</h2>
+        <article class="card table-card">
+          <div class="card-head"><h2>Top Experts</h2></div>
           <div class="table-wrap">
             <table id="experts-table">
               <thead>
@@ -58,19 +59,19 @@
 
       <section class="grid two">
         <article class="card">
-          <h2>Traffic (Visits per Day)</h2>
+          <div class="card-head"><h2>Traffic (Visits per Day)</h2></div>
           <canvas id="traffic-chart" height="120"></canvas>
         </article>
 
         <article class="card">
-          <h2>Social Performance</h2>
+          <div class="card-head"><h2>Social Performance</h2></div>
           <div id="social-summary" class="metrics"></div>
         </article>
       </section>
 
       <section class="grid two">
-        <article class="card">
-          <h2>Offers Performance</h2>
+        <article class="card table-card">
+          <div class="card-head"><h2>Offers Performance</h2></div>
           <div class="table-wrap">
             <table id="offers-table">
               <thead>
@@ -84,8 +85,8 @@
           </div>
         </article>
 
-        <article class="card">
-          <h2>Landing Pages</h2>
+        <article class="card table-card">
+          <div class="card-head"><h2>Landing Pages</h2></div>
           <div class="table-wrap">
             <table id="landing-table">
               <thead>

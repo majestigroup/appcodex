@@ -5,9 +5,9 @@
   --text: #edf2ff;
   --muted: #9fb0d9;
   --accent: #5ca8ff;
-  --accent-2: #42d392;
   --danger: #ff6b81;
   --border: #27345f;
+  --success: #47d18c;
 }
 
 * {
@@ -19,6 +19,7 @@ body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   color: var(--text);
   background: radial-gradient(circle at top right, #182445 0%, var(--bg) 45%);
+  min-height: 100vh;
 }
 
 .container {
@@ -26,25 +27,76 @@ body {
   margin: 2rem auto;
 }
 
-.narrow {
-  width: min(520px, calc(100% - 2rem));
-}
-
-.hero-layout {
-  display: grid;
-  gap: 1rem;
+.auth-layout {
+  width: min(560px, calc(100% - 2rem));
 }
 
 .card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent), var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
 }
 
-.subtle {
+.nav-card {
+  backdrop-filter: blur(3px);
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(92, 168, 255, 0.8);
+}
+
+.hero-pro {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1.4fr 1fr;
+}
+
+.hero-content .lead {
+  max-width: 62ch;
+}
+
+.hero-stats {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.stat-card {
   background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.55rem;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+.muted {
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .pill {
@@ -54,25 +106,7 @@ body {
   background: rgba(92, 168, 255, 0.15);
   color: #9dccff;
   font-size: 0.8rem;
-  margin: 0 0 0.5rem;
-}
-
-h1,
-h2 {
-  margin-top: 0;
-}
-
-h1 {
-  font-size: clamp(1.6rem, 2.7vw, 2.35rem);
-}
-
-h2 {
-  font-size: 1.1rem;
-}
-
-.muted {
-  color: var(--muted);
-  line-height: 1.55;
+  margin: 0 0 0.55rem;
 }
 
 .grid {
@@ -101,7 +135,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 0.9rem;
+  padding: 0.65rem 0.95rem;
   border-radius: 10px;
   border: 1px solid transparent;
   background: var(--accent);
@@ -112,7 +146,16 @@ h2 {
 }
 
 .button:hover {
-  opacity: 0.93;
+  opacity: 0.92;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.button-block {
+  width: 100%;
 }
 
 .button.ghost {
@@ -126,14 +169,23 @@ h2 {
   color: #2e0710;
 }
 
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .form {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.7rem;
+  margin-top: 1rem;
 }
 
 input {
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.75rem;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: #0e152b;
@@ -144,8 +196,40 @@ input:focus {
   outline: 2px solid rgba(92, 168, 255, 0.5);
 }
 
-.credentials p {
-  margin: 0.45rem 0;
+.alert {
+  margin-top: 1rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.alert-error {
+  background: rgba(255, 107, 129, 0.12);
+  border-color: rgba(255, 107, 129, 0.4);
+  color: #ffc2cb;
+}
+
+.hidden {
+  display: none;
+}
+
+.auth-panel {
+  padding: 1.25rem;
+}
+
+.credentials {
+  margin-top: 1rem;
+}
+
+.credential-title {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+}
+
+.feature-card {
+  min-height: 138px;
 }
 
 .text-link {
@@ -157,25 +241,23 @@ input:focus {
   text-decoration: underline;
 }
 
-.topbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: center;
+.card-head {
+  margin-bottom: 0.45rem;
 }
 
-.metric-card .metric-title,
-.metrics .metric-title {
+.metric-title {
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
 
-.metric-card .metric-value,
-.metrics .metric-value {
+.metric-value {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
+}
+
+.positive {
+  color: var(--success);
 }
 
 .metrics {
@@ -205,6 +287,12 @@ th {
   letter-spacing: 0.02em;
 }
 
+@media (max-width: 900px) {
+  .hero-pro {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .container {
     width: calc(100% - 1rem);
@@ -212,6 +300,6 @@ th {
   }
 
   .card {
-    padding: 0.9rem;
+    padding: 0.95rem;
   }
 }
